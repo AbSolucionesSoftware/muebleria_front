@@ -139,7 +139,7 @@ const Categorias = (props) => {
 				triggerSubMenuAction="click"
 			>
 				{categorias_nav}
-				{datosContx.navbar.temporadas.length === 1  && datosContx.navbar.temporadas[0]._id === '' ? null : (
+				{datosContx.navbar.temporadas.length === 1 && datosContx.navbar.temporadas[0]._id === '' ? null : (
 					<SubMenu
 						title="Temporadas"
 						className={
