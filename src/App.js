@@ -13,7 +13,7 @@ import './scss/disenoDos.scss';
 
 export default function App() {
 
-	const { setDatosContx, setLoading, active, setColores } = useContext(MenuContext);
+	const { setDatosContx, setLoading, upload, setUpload, active, setColores } = useContext(MenuContext);
 	const [nombreTienda, setNombreTienda] = useState('');
 	var decoded = { _id: '' };
 	const token = localStorage.getItem('token');
@@ -82,8 +82,9 @@ export default function App() {
 	useEffect(
 		() => {
 			obtenerInformacionTienda();
+			setUpload(false);
 		},
-		[ obtenerInformacionTienda, active ]
+		[ obtenerInformacionTienda, active, upload]
 	);
 
 	return (

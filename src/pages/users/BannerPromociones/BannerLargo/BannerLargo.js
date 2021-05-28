@@ -56,7 +56,7 @@ const BgElement = Element.BgElement;
                               alt="img-oferta"
                               style={{
                                   backgroundImage: imagenLocal ? `url(${banner.imagenBanner})` : `url(${aws + banner.imagenBanner})`,
-                                  cursor: 'pointer'
+                                  cursor: 'pointer',
                               }}
                           >
                           </BgElement>

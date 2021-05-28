@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Layout, Menu, Button } from 'antd';
 import { Link, withRouter } from 'react-router-dom';
+import { MenuContext } from '../../context/carritoContext';
 import './sidebar.scss';
 import {
 	FundOutlined,
@@ -30,6 +31,8 @@ function parseJwt(token) {
 }
 
 const Sidebar = (props) => {
+	const { setUpload } = useContext(MenuContext);
+
 	return (
 		<Sider
 			style={{ height: '100vh' }}
@@ -82,7 +85,11 @@ const Sidebar = (props) => {
 				<Menu.Item key="/admin/blog" icon={<EditOutlined />}>
 					Blog<Link to="/admin/blog" />
 				</Menu.Item>
-				<Menu.Item icon={<HomeOutlined />}>
+				<Menu.Item icon={<HomeOutlined />}
+					onClick={() => {
+						setUpload(true)
+					}}
+				>
 					Pagina principal<Link to="/" />
 				</Menu.Item>
 				<Menu.Item icon={<PoweroffOutlined />}>
@@ -91,6 +98,7 @@ const Sidebar = (props) => {
 						onClick={() => {
 							localStorage.removeItem('token');
 							props.history.push('/');
+							setUpload(true);
 						}}
 						danger
 					>
